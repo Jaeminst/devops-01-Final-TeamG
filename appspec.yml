@@ -3,10 +3,10 @@ os: linux
 
 files:
   - source: /
-    destination: /home/ubuntu/aws-tutor-app
+    destination: /home/ubuntu/super-g
 
 permissions:
-  - object: /home/ubuntu/aws-tutor-app/scripts
+  - object: /home/ubuntu/super-g/scripts
     owner: ubuntu
     group: ubuntu
     mode: 755

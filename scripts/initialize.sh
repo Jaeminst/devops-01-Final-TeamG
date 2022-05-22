@@ -1,5 +1,5 @@
 #!/bin/bash
-cd /home/ubuntu/aws-tutor-app/server
+cd /home/ubuntu/super-g/server
 apt install -y npm
 npm install
 npm install pm2@latest -g
