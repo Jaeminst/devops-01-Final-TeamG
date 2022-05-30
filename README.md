@@ -5,4 +5,4 @@ TeamG repository
 terraform apply -var-file="secret.tfvars"
 
 ## secret.tfvars
-Super Secret file :)
+Super Secret file ^-^/
