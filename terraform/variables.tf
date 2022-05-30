@@ -34,49 +34,54 @@ variable "db_password" {
 }
 
 variable "github_organization" {
-    description = "GitHub Organization Name"
-    default = "devops-team-rm-rf"
+  description = "GitHub Organization Name"
+  default = "devops-team-rm-rf"
 }
 
 variable "github_repository" {
-    description = "GitHub Repository Name"
-    default = "reservation-api-server"
+  description = "GitHub Repository Name"
+  default = "reservation-api-server"
 }
 
 
 variable "service_name" {
-    description = "Service App Name"
-    default = "reservation-server"
+  description = "Service App Name"
+  default = "reservation-server"
 }
 
 variable "server_port" {
-    description = "Port from EC2 on App port"
-    type = number
+  description = "Port from EC2 on App port"
+  type = number
 }
 
 variable "rds_port" {
-    description = "Port from RDS"
-    type = number
+  description = "Port from RDS"
+  type = number
 }
 
 output "server_port" {
-    description = "Connect to the EC2 at this port"
-    value = var.server_port
+  description = "Connect to the EC2 at this port"
+  value = var.server_port
 }
 
 output "server_elb" {
-    description = "Connect to the EC2 at this dns_name"
-    value = aws_alb.api_server.dns_name
+  description = "Connect to the EC2 at this dns_name"
+  value = aws_alb.api_server.dns_name
 }
 
 output "db_port" {
-    description = "Connect to the database at this port"
-    value = var.rds_port
+  description = "Connect to the database at this port"
+  value = var.rds_port
 }
 
 output "db_address" {
-    description = "Connect to the database at this address"
-    value = aws_db_instance.mysql.address
+  description = "Connect to the database at this address"
+  value = aws_db_instance.mysql.address
+}
+
+output "db_name" {
+  description = "Connect to the database at this name"
+  value = aws_db_instance.mysql.name
 }
 
 output "db_connect_string" {
