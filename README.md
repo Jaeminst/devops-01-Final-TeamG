@@ -3,3 +3,6 @@ TeamG repository
 
 ## Secret vars file for Terraform apply
 terraform apply -var-file="secret.tfvars"
+
+## secret.tfvars
+Super Secret file :)
