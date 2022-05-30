@@ -89,3 +89,8 @@ output "db_connect_string" {
   value       = "Server=${aws_db_instance.mysql.address}; Database=ExampleDB; Uid=${var.db_username}; Pwd=${var.db_password}"
   sensitive   = true
 }
+
+output "cache_host" {
+  description = "ElastiCache connection host"
+  value = aws_elasticache_cluster.teamg.cluster_address
+}
