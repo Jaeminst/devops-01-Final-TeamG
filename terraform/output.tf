@@ -11,12 +11,17 @@ output "Kibana_DNS" {
   value       = "http://${aws_alb.elk_server.dns_name}:5601"
 }
 
-output "server_port" {
+output "elk_server_elb" {
+  description = "Connect to the EC2 at this dns_name"
+  value       = aws_alb.elk_server.dns_name
+}
+
+output "api_server_port" {
   description = "Connect to the EC2 at this port"
   value       = var.server_port
 }
 
-output "server_elb" {
+output "api_server_elb" {
   description = "Connect to the EC2 at this dns_name"
   value       = aws_alb.api_server.dns_name
 }

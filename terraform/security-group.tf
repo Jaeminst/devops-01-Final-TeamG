@@ -56,6 +56,13 @@ resource "aws_security_group" "public" {
     protocol        = "tcp"
     cidr_blocks     = ["0.0.0.0/0"]
   }
+  ingress {
+    description     = "Test to server"
+    from_port       = 8080
+    to_port         = 8080
+    protocol        = "tcp"
+    cidr_blocks     = ["0.0.0.0/0"]
+  }
   egress {
     from_port       = 0
     to_port         = 0
@@ -117,6 +124,13 @@ resource "aws_security_group" "elk" {
     description = "kibana"
     from_port   = 5601
     to_port     = 5601
+    protocol    = "tcp"
+    cidr_blocks = ["0.0.0.0/0"]
+  }
+  ingress {
+    description = "Test"
+    from_port   = 8080
+    to_port     = 8080
     protocol    = "tcp"
     cidr_blocks = ["0.0.0.0/0"]
   }

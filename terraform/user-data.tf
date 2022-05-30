@@ -9,6 +9,7 @@ data "template_cloudinit_config" "config" {
     content_type = "text/x-shellscript"
     content      = <<-EOF
     #!/bin/bash
+    echo 'REDIS_HOST="${aws_elasticache_replication_group.redis.configuration_endpoint_address}"' >> /opt/env_redis_host
     echo 'DATABASE_HOST="${aws_db_instance.mysql.address}"' >> /opt/env_db_endpoint
     echo 'DATABASE_PORT="${var.rds_port}"' >> /opt/env_db_port
     echo 'DATABASE_USERNAME="${aws_db_instance.mysql.username}"' >> /opt/env_db_user
@@ -26,5 +27,3 @@ data "template_cloudinit_config" "config" {
     aws_elasticache_replication_group.redis
   ]
 }
-
-    # echo 'REDIS_HOST="${aws_elasticache_replication_group.redis.configuration_endpoint_address}"' >> /opt/env_redis_host

@@ -7,12 +7,12 @@ source /opt/env_db_use
 source /opt/env_redis_host
 source /opt/env_server_port
 echo "Inject Variable" >> index.html
+echo "<br> Redis Host: $REDIS_HOST" >> index.html
 echo "<br> DB Endpoint: $DATABASE_HOST" >> index.html
 echo "<br> DB Port: $DATABASE_PORT" >> index.html
 echo "<br> DB User: $DATABASE_USERNAME" >> index.html
 echo "<br> DB Pass: $DATABASE_PASSWORD" >> index.html
 echo "<br> DB use-db: $DATABASE_DB" >> index.html
-echo "<br> Redis Host: $REDIS_HOST" >> index.html
 
 apt -y update
 apt -y install ruby-full

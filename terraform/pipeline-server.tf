@@ -32,7 +32,7 @@ resource "aws_codepipeline" "codepipeline" {
       configuration = {
         ConnectionArn    = aws_codestarconnections_connection.github.arn
         FullRepositoryId = "${var.github_organization}/${var.github_repository}"
-        BranchName       = "main"
+        BranchName       = "develop"
         OutputArtifactFormat = "CODE_ZIP"
       }
     }
