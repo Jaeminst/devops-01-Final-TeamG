@@ -1,5 +1,5 @@
-resource "aws_alb" "api_server" {
-  name            = "api-server"
+resource "aws_alb" "elk_server" {
+  name            = "elk-server"
   internal        = false
   load_balancer_type = "application"
   idle_timeout    = 60
@@ -9,6 +9,6 @@ resource "aws_alb" "api_server" {
   enable_deletion_protection = false
 
   tags = {
-    Environment = "project4-alb"
+    Environment = "project4-elk"
   }
 }

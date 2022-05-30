@@ -59,38 +59,19 @@ variable "rds_port" {
   type = number
 }
 
-output "server_port" {
-  description = "Connect to the EC2 at this port"
-  value = var.server_port
+variable "elk_version" {
+  description = "Elastic Version"
+  type = string
 }
-
-output "server_elb" {
-  description = "Connect to the EC2 at this dns_name"
-  value = aws_alb.api_server.dns_name
+variable "elastic_password" {
+  description = "Elastic Password"
+  type = string
 }
-
-output "db_port" {
-  description = "Connect to the database at this port"
-  value = var.rds_port
+variable "logstash_password" {
+  description = "Logstash Password"
+  type = string
 }
-
-output "db_address" {
-  description = "Connect to the database at this address"
-  value = aws_db_instance.mysql.address
-}
-
-output "db_name" {
-  description = "Connect to the database at this name"
-  value = aws_db_instance.mysql.name
-}
-
-output "db_connect_string" {
-  description = "MySQL database connection string"
-  value       = "Server=${aws_db_instance.mysql.address}; Database=ExampleDB; Uid=${var.db_username}; Pwd=${var.db_password}"
-  sensitive   = true
-}
-
-output "cache_host" {
-  description = "ElastiCache connection host"
-  value = aws_elasticache_cluster.teamg.cluster_address
+variable "kibana_password" {
+  description = "Kibana Password"
+  type = string
 }

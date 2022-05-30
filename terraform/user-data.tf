@@ -13,7 +13,9 @@ data "template_cloudinit_config" "config" {
     echo 'DATABASE_PORT="${var.rds_port}"' >> /opt/env_db_port
     echo 'DATABASE_USERNAME="${aws_db_instance.mysql.username}"' >> /opt/env_db_user
     echo 'DATABASE_PASSWORD="${aws_db_instance.mysql.password}"' >> /opt/env_db_pass
+    echo 'DATABASE_DB="${aws_db_instance.mysql.name}"' >> /opt/env_db_use
     echo 'server_port="${var.server_port}"' >> /opt/env_server_port
+    echo 'REDIS_HOST="${aws_elasticache_cluster.teamg.cluster_address}"' >> /opt/env_redis_host
     EOF
   }
   #second part

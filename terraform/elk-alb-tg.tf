@@ -1,6 +1,6 @@
-resource "aws_lb_target_group" "reserv_api_server" {
-  name_prefix       = "server"
-  port              = var.server_port
+resource "aws_lb_target_group" "elastic_server" {
+  name_prefix       = "elk"
+  port              = 9200
   protocol          = "HTTP"
   protocol_version  = "HTTP1"
   target_type       = "instance"
