@@ -1,19 +1,39 @@
-resource "aws_route_table" "route_table_public" {
-  vpc_id = aws_vpc.project4_team.id
-
-  route {
-    cidr_block = "0.0.0.0/0"
-    gateway_id = aws_internet_gateway.igw.id
-  }
-
-  tags = {
-    Name = "route_table_public"
-  }
+resource "aws_route_table" "public" {
+    vpc_id = data.aws_vpc.selected.id
+    route {
+        cidr_block = "0.0.0.0/0"
+        gateway_id = aws_internet_gateway.igw.id
+    }
+    tags = {
+        Name = "public-route-table"
+    }
 }
 
-resource "aws_route_table" "route_table_private" {
-    vpc_id = aws_vpc.project4_team.id
+resource "aws_route_table" "private1" {
+    vpc_id = data.aws_vpc.selected.id
     tags = {
-        Name = "private route table"
+        Name = "private-route-table-1"
     }
+}
+
+resource "aws_route_table" "private2" {
+    vpc_id = data.aws_vpc.selected.id
+    tags = {
+       Name = "private-route-table-2"
+   }
+}
+
+resource "aws_route_table" "db-rt" {
+    vpc_id = data.aws_vpc.selected.id
+    route {
+        cidr_block = cidrsubnet("${data.aws_vpc.selected.cidr_block}", 4, 4)
+        nat_gateway_id = aws_nat_gateway.nat1.id
+    }
+    route {
+        cidr_block = cidrsubnet("${data.aws_vpc.selected.cidr_block}", 4, 5)
+        nat_gateway_id = aws_nat_gateway.nat1.id
+    }
+    tags = {
+       Name = "db-rt"
+   }
 }

@@ -1,11 +1,11 @@
-resource "aws_vpc" "project4_team" {    
-  cidr_block           = "10.10.0.0/16"
+resource "aws_vpc" "project4" {    
+  cidr_block           = cidrsubnet("172.16.0.0/12", 4, var.region_number[data.aws_availability_zone.az.region]) #"172.18.0.0/16"
   enable_dns_hostnames = true
   enable_dns_support   = true
   instance_tenancy     = "default"
 
   tags = {
-    Name = "project4-asdf"
+    Name = "project4-vpc"
   }
 }
 
@@ -17,11 +17,6 @@ data "aws_availability_zones" "available" {
   state = "available"
 }
 
-
-
-
-#서브넷
-
-#vpc그룹
-
-#라우팅 테이블
+data "aws_vpc" "selected" {
+  id = aws_vpc.project4.id
+}
