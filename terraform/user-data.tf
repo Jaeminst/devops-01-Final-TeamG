@@ -16,6 +16,7 @@ data "template_cloudinit_config" "config" {
     echo 'DATABASE_PASSWORD="${aws_db_instance.mysql.password}"' >> /opt/env_db_pass
     echo 'DATABASE_DB="${aws_db_instance.mysql.name}"' >> /opt/env_db_use
     echo 'server_port="${var.server_port}"' >> /opt/env_server_port
+    echo 'NOTIFY_ARN="${aws_sqs_queue.notify.arn}"' >> /opt/env_notify_arn
     EOF
   }
   #second part
