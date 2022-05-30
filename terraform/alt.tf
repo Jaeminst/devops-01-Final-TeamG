@@ -1,5 +1,5 @@
 resource "aws_launch_template" "alt" {
-  name_prefix = "ec2-web"
+  name_prefix = "api"
 
   image_id = data.aws_ami.ubuntu.id
 

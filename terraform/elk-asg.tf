@@ -24,7 +24,7 @@ resource "aws_autoscaling_group" "elk" {
 
   tag {
     key   = "Name"
-    value = "new-auto-scaling"
+    value = "elk-server"
     propagate_at_launch = true
   }
 

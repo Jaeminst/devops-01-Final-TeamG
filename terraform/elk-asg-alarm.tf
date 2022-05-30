@@ -1,5 +1,5 @@
 resource "aws_cloudwatch_metric_alarm" "elk-scale-in" {
-  alarm_name          = "terraform-Scale-in"
+  alarm_name          = "terraform-elk-Scale-in"
   comparison_operator = "LessThanOrEqualToThreshold"
   datapoints_to_alarm = 1
   evaluation_periods  = 1
@@ -23,7 +23,7 @@ resource "aws_cloudwatch_metric_alarm" "elk-scale-in" {
 }
 
 resource "aws_cloudwatch_metric_alarm" "elk-scale-out" {
-  alarm_name          = "terraform-Scale-out"
+  alarm_name          = "terraform-elk-Scale-out"
   comparison_operator = "GreaterThanOrEqualToThreshold"
   datapoints_to_alarm = 1
   evaluation_periods  = 1

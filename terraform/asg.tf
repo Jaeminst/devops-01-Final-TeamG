@@ -24,7 +24,7 @@ resource "aws_autoscaling_group" "reserv_api_server" {
 
   tag {
     key   = "Name"
-    value = "new-auto-scaling"
+    value = "reservation-api-server"
     propagate_at_launch = true
   }
 

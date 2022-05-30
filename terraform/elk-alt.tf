@@ -1,5 +1,5 @@
 resource "aws_launch_template" "elk" {
-  name_prefix = "ec2-elk"
+  name_prefix = "elk"
 
   image_id = data.aws_ami.ubuntu.id
 

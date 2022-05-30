@@ -15,7 +15,6 @@ data "template_cloudinit_config" "config" {
     echo 'DATABASE_PASSWORD="${aws_db_instance.mysql.password}"' >> /opt/env_db_pass
     echo 'DATABASE_DB="${aws_db_instance.mysql.name}"' >> /opt/env_db_use
     echo 'server_port="${var.server_port}"' >> /opt/env_server_port
-    echo 'REDIS_HOST="${aws_elasticache_cluster.teamg.cluster_address}"' >> /opt/env_redis_host
     EOF
   }
   #second part
@@ -23,4 +22,9 @@ data "template_cloudinit_config" "config" {
     content_type = "text/x-shellscript"
     content      = data.template_file.client.rendered
   }
+  depends_on = [
+    aws_elasticache_replication_group.redis
+  ]
 }
+
+    # echo 'REDIS_HOST="${aws_elasticache_replication_group.redis.configuration_endpoint_address}"' >> /opt/env_redis_host

@@ -43,7 +43,17 @@ output "db_connect_string" {
   sensitive   = true
 }
 
-output "cache_host" {
-  description = "ElastiCache connection host"
-  value       = aws_elasticache_cluster.teamg.cluster_address
+output "cache_primary_endpoint" {
+  description = "ElastiCache connection Primary"
+  value       = aws_elasticache_replication_group.redis.primary_endpoint_address
+}
+
+output "cache_reader_endpoint" {
+  description = "ElastiCache connection Reader"
+  value       = aws_elasticache_replication_group.redis.reader_endpoint_address
+}
+
+output "cache_configure_endpoint" {
+  description = "ElastiCache connection Configure"
+  value       = aws_elasticache_replication_group.redis.configuration_endpoint_address
 }
