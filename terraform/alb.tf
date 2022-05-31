@@ -3,7 +3,7 @@ resource "aws_alb" "api_server" {
   internal        = false
   load_balancer_type = "application"
   idle_timeout    = 60
-  security_groups = [aws_security_group.public.id]
+  security_groups = [aws_security_group.public.id, aws_security_group.private.id]
   subnets         = [aws_subnet.public1.id, aws_subnet.public2.id]
 
   enable_deletion_protection = false
