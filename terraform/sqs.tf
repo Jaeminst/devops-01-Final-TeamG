@@ -49,12 +49,7 @@ resource "aws_sqs_queue_policy" "notify_policy" {
       "Effect": "Allow",
       "Principal": "*",
       "Action": "sqs:SendMessage",
-      "Resource": "${aws_sqs_queue.notify.arn}",
-      "Condition": {
-        "ArnEquals": {
-          "aws:SourceArn": "${aws_sns_topic.notify.arn}"
-        }
-      }
+      "Resource": "${aws_sqs_queue.notify.arn}"
     }
   ]
 }

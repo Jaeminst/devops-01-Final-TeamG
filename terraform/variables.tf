@@ -43,6 +43,11 @@ variable "github_repository" {
   default = "reservation-api-server"
 }
 
+variable "github_repository_elk" {
+  description = "GitHub Repository Name"
+  default = "docker-elk"
+}
+
 
 variable "service_name" {
   description = "Service App Name"
