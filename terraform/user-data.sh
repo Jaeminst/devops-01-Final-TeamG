@@ -1,4 +1,6 @@
 #!/bin/bash
+source /opt/env_elastic_host
+source /opt/env_elastic_pass
 source /opt/env_redis_host
 source /opt/env_db_endpoint
 source /opt/env_db_port
@@ -8,6 +10,8 @@ source /opt/env_db_use
 source /opt/env_server_port
 source /opt/env_notify_arn
 echo "Inject Variable" >> index.html
+echo "<br> Elastic Host: $ELASTIC_HOST" >> index.html
+echo "<br> Elastic Pass: $ELASTIC_PASSWORD" >> index.html
 echo "<br> Redis Host: $REDIS_HOST" >> index.html
 echo "<br> DB Endpoint: $DATABASE_HOST" >> index.html
 echo "<br> DB Port: $DATABASE_PORT" >> index.html
