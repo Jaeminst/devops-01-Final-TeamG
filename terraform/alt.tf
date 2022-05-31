@@ -7,7 +7,7 @@ resource "aws_launch_template" "alt" {
     device_index                = 0
     ipv4_address_count          = 0
     ipv6_address_count          = 0
-    security_groups             = [aws_security_group.public.id, aws_security_group.private.id]
+    security_groups             = [aws_security_group.public.id]
     associate_public_ip_address = true
     delete_on_termination       = true
   }

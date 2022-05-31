@@ -93,6 +93,14 @@ resource "aws_security_group" "private" {
     security_groups = [aws_security_group.public.id]
     self            = false
   }
+  ingress {
+    description     = "server to redis"
+    from_port       = 6379
+    to_port         = 6379
+    protocol        = "tcp"
+    security_groups = [aws_security_group.public.id]
+    self            = false
+  }
   egress {
     from_port       = 0
     to_port         = 0
