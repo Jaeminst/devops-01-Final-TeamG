@@ -26,6 +26,7 @@ resource "aws_codepipeline" "codepipeline" {
       category         = "Source"
       owner            = "AWS"
       provider         = "CodeStarSourceConnection"
+      region           = data.aws_availability_zone.az.region
       version          = "1"
       output_artifacts = ["SourceArtifact"]
 
@@ -47,6 +48,7 @@ resource "aws_codepipeline" "codepipeline" {
       category         = "Build"
       owner            = "AWS"
       provider         = "CodeBuild"
+      region           = data.aws_availability_zone.az.region
       input_artifacts  = ["SourceArtifact"]
       output_artifacts = ["BuildArtifact"]
       version          = "1"
@@ -62,22 +64,23 @@ resource "aws_codepipeline" "codepipeline" {
 
     action {
       run_order       = 1
-      name            = "Deploy"
+      name            = "Deploy-front"
       category        = "Deploy"
       owner           = "AWS"
       provider        = "S3"
+      region          = data.aws_availability_zone.az.region
       input_artifacts = ["BuildArtifact"]
       version         = "1"
 
       configuration = {
-        BucketName = "project4-frontend-react"
+        BucketName = aws_s3_bucket.front.id
         Extract = "true"
       }
     }
 
     action {
       run_order       = 2
-      name            = "Deploy"
+      name            = "Deploy-back"
       category        = "Deploy"
       owner           = "AWS"
       provider        = "CodeDeploy"

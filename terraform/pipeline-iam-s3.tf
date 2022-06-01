@@ -8,10 +8,10 @@ resource "aws_s3_bucket_acl" "codepipeline_bucket_acl" {
   acl    = "private"
 }
 
-resource "aws_s3_bucket_policy" "allow_access_from_another_account" {
-  bucket = aws_s3_bucket.codepipeline_bucket.id
-  policy = "${file("iam/sse-ssl-policy.json")}"
-}
+# resource "aws_s3_bucket_policy" "allow_access_from_another_account" {
+#   bucket = aws_s3_bucket.codepipeline_bucket.id
+#   policy = "${file("iam/sse-ssl-policy.json")}"
+# }
 
 data "aws_kms_alias" "s3" {
   name = "alias/aws/s3"
