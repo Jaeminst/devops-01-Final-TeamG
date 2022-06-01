@@ -4,7 +4,7 @@ resource "aws_lb_target_group" "reserv_api_server" {
   protocol          = "HTTP"
   protocol_version  = "HTTP1"
   target_type       = "instance"
-  vpc_id            = aws_vpc.project4.id
+  vpc_id            = data.aws_vpc.selected.id
 
   health_check {
     enabled         = true
@@ -25,7 +25,7 @@ resource "aws_lb_target_group" "dev" {
   protocol          = "HTTP"
   protocol_version  = "HTTP1"
   target_type       = "instance"
-  vpc_id            = aws_vpc.project4.id
+  vpc_id            = data.aws_vpc.selected.id
 
   health_check {
     enabled         = true

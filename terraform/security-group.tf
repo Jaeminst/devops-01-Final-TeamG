@@ -113,7 +113,7 @@ resource "aws_security_group" "private" {
 resource "aws_security_group" "elk" {
   name        = "elk"
   description = "Allow ELK stack inbound traffic"
-  vpc_id      = aws_vpc.project4.id
+  vpc_id      = data.aws_vpc.selected.id
   ingress {
     description = "SSH"
     from_port   = 22
