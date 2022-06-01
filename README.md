@@ -26,11 +26,8 @@ $ terraform apply -target=aws_alb.elk_server
  * Secret to sensitive
 
 ```bash
-ElasticSearch_DNS = "http://elk-server-1070576728.ap-northeast-2.elb.amazonaws.com:9200"
-Kibana_DNS = "http://elk-server-1070576728.ap-northeast-2.elb.amazonaws.com:5601"
-Logstash_endpoint = "http://elk-server-1070576728.ap-northeast-2.elb.amazonaws.com:4055"
 api_server_elb = "api-server-514967050.ap-northeast-2.elb.amazonaws.com"
-api_server_port = 3000
+api_server_listener_target_port = 3000
 cache_configure_endpoint = "superg-redis.sr25la.clustercfg.apn2.cache.amazonaws.com"
 db_address = "terraform-20220601052959473200000008.cgv2m6sgcple.ap-northeast-2.rds.amazonaws.com"
 db_connect_string = <sensitive>

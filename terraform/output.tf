@@ -1,22 +1,10 @@
-output "ElasticSearch_DNS" {
-  description = "ElasticSearch"
-  value       = "http://${aws_alb.elk_server.dns_name}:9200"
-}
-output "Logstash_endpoint" {
-  description = "ElasticSearch"
-  value       = "http://${aws_alb.elk_server.dns_name}:4055"
-}
-output "Kibana_DNS" {
-  description = "ElasticSearch"
-  value       = "http://${aws_alb.elk_server.dns_name}:5601"
-}
 output "elk_server_elb" {
   description = "Connect to the EC2 at this dns_name"
   value       = aws_alb.elk_server.dns_name
 }
 
-output "api_server_port" {
-  description = "Connect to the EC2 at this port"
+output "api_server_listener_target_port" {
+  description = "Connect to the EC2 at this target port"
   value       = var.server_port
 }
 output "api_server_elb" {
