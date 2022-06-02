@@ -54,14 +54,15 @@ data "aws_iam_policy_document" "front" {
   }
 }
 
-resource "aws_s3_bucket_cors_configuration" "front" {
-  bucket = aws_s3_bucket.front.id
+# resource "aws_s3_bucket_cors_configuration" "front" {
+#   bucket = aws_s3_bucket.front.id
 
-  cors_rule {
-    allowed_methods = ["GET"]
-    allowed_origins = ["*"]
-  }
-}
+#   cors_rule {
+#     allowed_headers = ["*"]
+#     allowed_methods = ["GET", "POST", "HEAD", "DELETE", "PUT"]
+#     allowed_origins = ["*"]
+#   }
+# }
 
 resource "aws_s3_bucket_public_access_block" "front" {
   bucket = aws_s3_bucket.front.id
@@ -73,14 +74,14 @@ resource "aws_s3_bucket_public_access_block" "front" {
 
 resource "aws_s3_bucket_website_configuration" "front" {
   bucket = aws_s3_bucket.front.id
-  redirect_all_requests_to {
-    host_name = "www.jaemin.click"
-    protocol  = "https"
-  }
-
-  # index_document {
-  #   suffix = "index.html"
+  # redirect_all_requests_to {
+  #   host_name = "www.jaemin.click"
+  #   protocol  = "https"
   # }
+
+  index_document {
+    suffix = "index.html"
+  }
 
   # error_document {
   #   key = "error.html"
