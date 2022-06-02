@@ -9,10 +9,11 @@ data "template_cloudinit_config" "notify" {
     content_type = "text/x-shellscript"
     content      = <<-EOF
     #!/bin/bash
-    echo 'export AWS_ACCESS_KEY_ID="${var.AWS_ACCESS_KEY_ID}"' >> /opt/env_access_key
-    echo 'export AWS_SECRET_ACCESS_KEY="${var.AWS_SECRET_ACCESS_KEY}"' >> /opt/env_secret_key
     echo 'export NOTIFY_QUEUE_URL="${aws_sqs_queue.notify.url}"' >> /opt/env_notify_url
     EOF
+    # ec2의 iam role을 사용하여 자동으로 자격을 증명합니다.
+    # echo 'export AWS_ACCESS_KEY_ID="${var.AWS_ACCESS_KEY_ID}"' >> /opt/env_access_key
+    # echo 'export AWS_SECRET_ACCESS_KEY="${var.AWS_SECRET_ACCESS_KEY}"' >> /opt/env_secret_key
   }
   #second part
   part {
