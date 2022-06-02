@@ -1,3 +1,8 @@
+output "notify_server_elb" {
+  description = "Connect to the EC2 at this dns_name"
+  value       = aws_alb.notify_server.dns_name
+}
+
 output "elk_server_elb" {
   description = "Connect to the EC2 at this dns_name"
   value       = aws_alb.elk_server.dns_name
