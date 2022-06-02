@@ -1,10 +1,10 @@
-resource "aws_codestarconnections_connection" "elk_github" {
-  name          = "terraform-project4-elk"
+resource "aws_codestarconnections_connection" "notify_github" {
+  name          = "terraform-project4-notify"
   provider_type = "GitHub"
 }
 
-resource "aws_codepipeline" "elk_codepipeline" {
-  name     = "elk-server"
+resource "aws_codepipeline" "notify_codepipeline" {
+  name     = "notify-server"
   role_arn = aws_iam_role.codepipeline_role.arn
 
   artifact_store {
@@ -30,8 +30,8 @@ resource "aws_codepipeline" "elk_codepipeline" {
       output_artifacts = ["SourceArtifact"]
 
       configuration = {
-        ConnectionArn    = aws_codestarconnections_connection.elk_github.arn
-        FullRepositoryId = "${var.github_organization}/${var.github_repository_elk}"
+        ConnectionArn    = aws_codestarconnections_connection.notify_github.arn
+        FullRepositoryId = "${var.github_organization}/${var.github_repository_notify}"
         BranchName       = "main"
         OutputArtifactFormat = "CODE_ZIP"
       }
@@ -52,8 +52,8 @@ resource "aws_codepipeline" "elk_codepipeline" {
       version         = "1"
 
       configuration = {
-        ApplicationName = aws_codedeploy_app.elk_server.name
-        DeploymentGroupName = aws_codedeploy_deployment_group.elk_server.deployment_group_name
+        ApplicationName = aws_codedeploy_app.notify_server.name
+        DeploymentGroupName = aws_codedeploy_deployment_group.notify_server.deployment_group_name
       }
     }
   }

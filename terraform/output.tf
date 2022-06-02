@@ -48,3 +48,8 @@ output "notify_queue_arn" {
   description = "SQS arn for Notify Server"
   value       = aws_sqs_queue.notify.arn
 }
+
+output "notify_queue_url" {
+  description = "SQS url for Notify Server"
+  value       = aws_sqs_queue.notify.url
+}

@@ -152,3 +152,52 @@ resource "aws_security_group" "elk" {
     Name = "elk"
   }
 }
+
+resource "aws_security_group" "notify" {
+  name        = "notify-sg"
+  description = "Control notification api inbound and outbound access"
+  vpc_id      = data.aws_vpc.selected.id
+  tags        = { Name = "notification-api" }
+
+  ingress {
+    description     = "Web to server"
+    from_port       = var.server_port
+    to_port         = var.server_port
+    protocol        = "tcp"
+    cidr_blocks     = ["0.0.0.0/0"]
+  }
+  ingress {
+    description     = "SSH to server"
+    from_port       = 22
+    to_port         = 22
+    protocol        = "tcp"
+    cidr_blocks     = ["0.0.0.0/0"]
+  }
+  ingress {
+    description     = "HTTP to server"
+    from_port       = 80
+    to_port         = 80
+    protocol        = "tcp"
+    cidr_blocks     = ["0.0.0.0/0"]
+  }
+  ingress {
+    description     = "HTTPS to server"
+    from_port       = 443
+    to_port         = 443
+    protocol        = "tcp"
+    cidr_blocks     = ["0.0.0.0/0"]
+  }
+  ingress {
+    description     = "Test to server"
+    from_port       = 8080
+    to_port         = 8080
+    protocol        = "tcp"
+    cidr_blocks     = ["0.0.0.0/0"]
+  }
+  egress {
+    from_port       = 0
+    to_port         = 0
+    protocol        = "-1"
+    cidr_blocks     = ["0.0.0.0/0"]
+  }
+}
