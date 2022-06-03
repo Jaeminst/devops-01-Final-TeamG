@@ -1,3 +1,8 @@
+output "notify_server_elb" {
+  description = "Connect to the EC2 at this dns_name"
+  value       = aws_alb.notify_server.dns_name
+}
+
 output "elk_server_elb" {
   description = "Connect to the EC2 at this dns_name"
   value       = aws_alb.elk_server.dns_name
@@ -47,4 +52,9 @@ output "cache_configure_endpoint" {
 output "notify_queue_arn" {
   description = "SQS arn for Notify Server"
   value       = aws_sqs_queue.notify.arn
+}
+
+output "notify_queue_url" {
+  description = "SQS url for Notify Server"
+  value       = aws_sqs_queue.notify.url
 }

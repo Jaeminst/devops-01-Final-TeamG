@@ -18,8 +18,11 @@ data "template_cloudinit_config" "config" {
     echo 'export DATABASE_PASSWORD="${aws_db_instance.mysql.password}"' >> /opt/env_db_pass
     echo 'export DATABASE_DB="${aws_db_instance.mysql.name}"' >> /opt/env_db_use
     echo 'export server_port="${var.server_port}"' >> /opt/env_server_port
-    echo 'export NOTIFY_ARN="${aws_sqs_queue.notify.arn}"' >> /opt/env_notify_arn
+    echo 'export NOTIFY_QUEUE_URL="${aws_sqs_queue.notify.url}"' >> /opt/env_notify_url
     EOF
+    # ec2의 iam role을 사용하여 자동으로 자격을 증명합니다.
+    # echo 'export AWS_ACCESS_KEY_ID="${var.AWS_ACCESS_KEY_ID}"' >> /opt/env_access_key
+    # echo 'export AWS_SECRET_ACCESS_KEY="${var.AWS_SECRET_ACCESS_KEY}"' >> /opt/env_secret_key
   }
   #second part
   part {
