@@ -9,3 +9,90 @@ variable "region_number" {
     ap-northeast-2 = 5
   }
 }
+
+variable "AWS_ACCESS_KEY_ID" {
+  description = "AWS_ACCESS_KEY_ID"
+  type        = string
+  sensitive   = true
+}
+
+variable "AWS_SECRET_ACCESS_KEY" {
+  description = "AWS_SECRET_ACCESS_KEY"
+  type        = string
+  sensitive   = true
+}
+
+variable "multi_az" {
+  description = "RDS: Setup of multi az? (true/false)"
+  type = bool
+}
+
+variable "db_use_data" {
+  description = "Database start used table name"
+  type        = string
+  sensitive   = true
+}
+
+variable "db_username" {
+  description = "Database administrator username"
+  type        = string
+  sensitive   = true
+}
+
+variable "db_password" {
+  description = "Database administrator password"
+  type        = string
+  sensitive   = true
+}
+
+variable "github_organization" {
+  description = "GitHub Organization Name"
+  default = "devops-team-rm-rf"
+}
+
+variable "github_repository" {
+  description = "GitHub Repository Name"
+  default = "reservation-api-server"
+}
+
+variable "github_repository_elk" {
+  description = "GitHub Repository Name"
+  default = "docker-elk"
+}
+
+variable "github_repository_notify" {
+  description = "GitHub Repository Name"
+  default = "notification-api-server"
+}
+
+variable "service_name" {
+  description = "Service App Name"
+  default = "reservation-server"
+}
+
+variable "server_port" {
+  description = "Port from EC2 on App port"
+  type = number
+}
+
+variable "rds_port" {
+  description = "Port from RDS"
+  type = number
+}
+
+variable "elk_version" {
+  description = "Elastic Version"
+  type = string
+}
+variable "elastic_password" {
+  description = "Elastic Password"
+  type = string
+}
+variable "logstash_password" {
+  description = "Logstash Password"
+  type = string
+}
+variable "kibana_password" {
+  description = "Kibana Password"
+  type = string
+}
