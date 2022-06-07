@@ -3,7 +3,9 @@
 
 소비자가 예약을 하고 조회할 수 있도록 기본적인 3tier Architechure로 dev환경을 구성함.
 
-`<발표 pdf 자료 첨부예정>`
+![스크린샷, 2022-06-07 10-16-37](https://user-images.githubusercontent.com/99110424/172275305-7ace9a51-6576-4afd-af42-05bde8517a5c.png)
+
+
 
 `<Animated demo 첨부예정>`
 
