@@ -1,0 +1,42 @@
+[
+  {
+    "url": "https://api.github.com/projects/columns/18724560",
+    "project_url": "https://api.github.com/projects/14467707",
+    "cards_url": "https://api.github.com/projects/columns/18724560/cards",
+    "id": 18724560,
+    "node_id": "PC_lATOHWOZHM4A3MJ7zgEdttA",
+    "name": "To do",
+    "created_at": "2022-05-18T08:21:31Z",
+    "updated_at": "2022-06-02T09:54:10Z"
+  },
+  {
+    "url": "https://api.github.com/projects/columns/18724561",
+    "project_url": "https://api.github.com/projects/14467707",
+    "cards_url": "https://api.github.com/projects/columns/18724561/cards",
+    "id": 18724561,
+    "node_id": "PC_lATOHWOZHM4A3MJ7zgEdttE",
+    "name": "In progress",
+    "created_at": "2022-05-18T08:21:31Z",
+    "updated_at": "2022-06-06T10:39:08Z"
+  },
+  {
+    "url": "https://api.github.com/projects/columns/18724562",
+    "project_url": "https://api.github.com/projects/14467707",
+    "cards_url": "https://api.github.com/projects/columns/18724562/cards",
+    "id": 18724562,
+    "node_id": "PC_lATOHWOZHM4A3MJ7zgEdttI",
+    "name": "Done",
+    "created_at": "2022-05-18T08:21:31Z",
+    "updated_at": "2022-06-06T10:39:08Z"
+  },
+  {
+    "url": "https://api.github.com/projects/columns/18740559",
+    "project_url": "https://api.github.com/projects/14467707",
+    "cards_url": "https://api.github.com/projects/columns/18740559/cards",
+    "id": 18740559,
+    "node_id": "PC_lATOHWOZHM4A3MJ7zgEd9U8",
+    "name": "Close Issues & PR",
+    "created_at": "2022-05-20T01:22:19Z",
+    "updated_at": "2022-05-31T01:15:42Z"
+  }
+]
