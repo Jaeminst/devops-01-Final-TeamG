@@ -5,9 +5,12 @@
 
 ![스크린샷, 2022-06-07 10-16-37](https://user-images.githubusercontent.com/99110424/172275305-7ace9a51-6576-4afd-af42-05bde8517a5c.png)
 
+## Project Kanban
+https://github.com/Jaeminst/devops-01-Final-TeamG/projects/1
+![스크린샷, 2022-07-01 21-15-33](https://user-images.githubusercontent.com/99124279/176892555-c18ce30c-0aca-4180-a507-e35aad8dd692.png)
 
-
-`<Animated demo 첨부예정>`
+## Animated demo
+`<첨부예정>`
 
 ## Contents
 1. [Requirements](#requirements)
